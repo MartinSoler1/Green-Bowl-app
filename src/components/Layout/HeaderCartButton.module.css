@@ -9,7 +9,6 @@
   justify-content: space-around;
   align-items: center;
   border-radius: 25px;
-  font-weight: z;
 }
 
 .button:hover,
@@ -57,3 +56,17 @@
     transform: scale(1);
   }
 }
+
+
+@media (max-width: 600px){
+  .button{padding: 0.5rem 1rem;
+ margin-left: 5rem;
+ display: inline-flex;
+}
+  .cartLabel{display: none;}
+  .icon {
+    width: 1.4rem;
+    height: 1.4rem;
+    margin-right: 0rem;
+  }
+  }

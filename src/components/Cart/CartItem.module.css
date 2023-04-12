@@ -42,11 +42,12 @@
     flex-direction: row;
   }
 }
+.cart-item h2{font-size:1.2rem ;}
 
 .cart-item button {
   font: inherit;
   font-weight: bold;
-  font-size: 1.25rem;
+  font-size: 1rem;
   color: #68925c;
   border: 1px solid #68925c;
   width: 3rem;
