@@ -18,3 +18,11 @@
   background-color: #43503f;
   border-color: #272e23;
 }
+
+@media (max-width: 600px) {
+  .form button {
+    padding: 0.25rem 1rem;
+    font-size: 0.8rem;
+
+  }
+}
