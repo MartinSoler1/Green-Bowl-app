@@ -27,7 +27,7 @@ const Cart = (props) => {
   };
 
   const cartItems = (
-    <ul className={classes["cart-items"]}>
+    <ul className={classes["cart-items"]} data-test="cart-meals">
       {cartCtx.items.map((item) => (
         <CartItem
           key={item.id}
@@ -53,7 +53,6 @@ const Cart = (props) => {
     setIsSubmitting(false);
     setDidSubmit(true);
     cartCtx.clearCart();
-
   };
 
   const modalActions = (
@@ -62,7 +61,11 @@ const Cart = (props) => {
         Close
       </button>
       {hasItems && (
-        <button className={classes.button} onClick={orderHandler}>
+        <button
+          className={classes.button}
+          onClick={orderHandler}
+          data-test="order-cart-button"
+        >
           Order
         </button>
       )}
@@ -73,7 +76,7 @@ const Cart = (props) => {
       {cartItems}
       <div className={classes.total}>
         <span>Total Amount</span>
-        <span>{totalAmount}</span>
+        <span data-test="cart-total">{totalAmount}</span>
       </div>
       {isCheckOut && (
         <Checkout onConfirm={submitOrderHandler} onCancel={props.onClose} />
@@ -86,7 +89,11 @@ const Cart = (props) => {
     <>
       <p>Order succesfully submited</p>
       <div className={classes.actions}>
-        <button className={classes["button--alt"]} onClick={props.onClose}>
+        <button
+          className={classes["button--alt"]}
+          onClick={props.onClose}
+          data-test="checkout-close-button"
+        >
           Close
         </button>
       </div>
