@@ -71,24 +71,44 @@ const Checkout = (props) => {
     <form className={classes.form} onSubmit={confirmHandler}>
       <div className={nameControlClasses}>
         <label htmlFor="name">Full Name</label>
-        <input type="text" id="name" ref={nameInputRef} />
+        <input
+          type="text"
+          id="name"
+          ref={nameInputRef}
+          data-test="checkout-input-name"
+        />
         {!formInputsValidity.name && <p>Please enter a valid name!</p>}
       </div>
       <div className={adressControlClasses}>
-        <label htmlFor="adress">Adress</label>
-        <input type="text" id="adress" ref={adressInputRef} />
-        {!formInputsValidity.adress && <p>Please enter a valid adress!</p>}
+        <label htmlFor="address">Address</label>
+        <input
+          type="text"
+          id="adress"
+          ref={adressInputRef}
+          data-test="checkout-input-address"
+        />
+        {!formInputsValidity.adress && <p>Please enter a valid address!</p>}
       </div>
       <div className={postalCodeControlClasses}>
         <label htmlFor="postal">Postal Code</label>
-        <input type="number" id="postal" ref={postalCodeInputRef} />
+        <input
+          type="number"
+          id="postal"
+          ref={postalCodeInputRef}
+          data-test="checkout-input-postcode"
+        />
         {!formInputsValidity.postalCode && (
           <p>Please enter a valid postal code!</p>
         )}
       </div>
       <div className={cityControlClasses}>
         <label htmlFor="city">City</label>
-        <input type="text" id="city" ref={cityInputRef} />
+        <input
+          type="text"
+          id="city"
+          ref={cityInputRef}
+          data-test="checkout-input-city"
+        />
       </div>
       {!formInputsValidity.city && <p>Please enter a valid city!</p>}
 
@@ -96,7 +116,9 @@ const Checkout = (props) => {
         <button type="button" onClick={props.onCancel}>
           Cancel
         </button>
-        <button className={classes.submit}>Confirm</button>
+        <button className={classes.submit} data-test="checkout-confirm-button">
+          Confirm
+        </button>
       </div>
     </form>
   );
