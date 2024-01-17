@@ -39,6 +39,7 @@ const AvailableMeals = () => {
       setHttpError(error.message);
     });
   }, []);
+  console.log(httpError);
 
   if (isLoading) {
     return (
