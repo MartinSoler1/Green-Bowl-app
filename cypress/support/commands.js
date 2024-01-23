@@ -33,3 +33,10 @@ Cypress.Commands.add("clickMealItemAddButton", (item) => {
     cy.get("button").click();
   });
 });
+
+Cypress.Commands.add("CheckoutFormCompleted", () => {
+  cy.getDataTest("checkout-input-name").type("Frank Fladling");
+  cy.getDataTest("checkout-input-address").type("Av.Olazabal 1124");
+  cy.getDataTest("checkout-input-postcode").type("1124");
+  cy.getDataTest("checkout-input-city").type("Buenos Aires");
+});

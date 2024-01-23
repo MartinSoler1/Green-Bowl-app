@@ -76,10 +76,7 @@ describe("Checkout Process", () => {
     cy.getDataTest("cart-button").click();
     cy.getDataTest("cart-total").should("have.text", "$22.99");
     cy.getDataTest("order-cart-button").click();
-    cy.getDataTest("checkout-input-name").type("Frank Fladling");
-    cy.getDataTest("checkout-input-address").type("Av.Olazabal 1124");
-    cy.getDataTest("checkout-input-postcode").type("1124");
-    cy.getDataTest("checkout-input-city").type("Buenos Aires");
+    cy.CheckoutFormCompleted();
     cy.intercept(
       "POST",
       "https://food-order-app-e3494-default-rtdb.firebaseio.com/orders.json"
@@ -92,16 +89,15 @@ describe("Checkout Process", () => {
     cy.getDataTest("checkout-close-button").click();
     cy.contains("Order succesfully submited").should("not.exist");
   });
-  it("All checkout form inputs should be required", () => {
+  it.only("All checkout form inputs should be required", () => {
     cy.getDataTest("meal-item-a1").within(() => {
       cy.get("button").click();
     });
     cy.getDataTest("cart-button").click();
     cy.getDataTest("order-cart-button").click();
 
-    cy.getDataTest("checkout-input-address").type("Av.Olazabal 1124");
-    cy.getDataTest("checkout-input-postcode").type("1124");
-    cy.getDataTest("checkout-input-city").type("Buenos Aires");
+    cy.CheckoutFormCompleted();
+    cy.getDataTest("checkout-input-name").clear();
 
     cy.getDataTest("checkout-confirm-button").click();
 
